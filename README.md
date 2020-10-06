@@ -1,7 +1,7 @@
 # Advanced_Pagination
 
 
-![.NET Core 3.1](#)
+![.NET Core](#)
 
 Related documents:
 

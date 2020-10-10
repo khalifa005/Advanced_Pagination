@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AdvancedPagination.Core.Util;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -32,7 +34,17 @@ namespace AdvancedPagination
                     Configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
-            
+
+            //get current base uri 
+            services.AddHttpContextAccessor();
+            services.AddSingleton<IUriService>(o =>
+            {
+                var accessor = o.GetRequiredService<IHttpContextAccessor>();
+                var request = accessor.HttpContext.Request;
+                var uri = string.Concat(request.Scheme, "://", request.Host.ToUriComponent());
+                return new UriService(uri);
+            });
+             
             //#region Swagger
             //services.AddSwaggerGen(c =>
             //{

@@ -4,7 +4,7 @@
 
 Related documents:
 
-* [Requirements: asp dot net core 3.1 && vs ]()
+* [Requirements: asp dot net core 3.1 && vs ](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 
 Test Sites:
 

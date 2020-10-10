@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AdvancedPagination.Core;
+using AdvancedPagination.Core.Filter;
+using AdvancedPagination.Core.Wrapper;
 using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -20,19 +22,30 @@ namespace AdvancedPagination.Controllers
         {
             this._context = _context;
         }
+
         // GET: api/<FakeCustomersController>
         [HttpGet]
-        public async Task<IEnumerable<Customer>> Get()
+        public async Task<IActionResult> Get([FromQuery] PaginationFilter filter)
         {
-            //var test = _context.Customers.AsAsyncEnumerable();
-            return await _context.Customers.ToListAsync();
+            var validFilter = new PaginationFilter(filter.PageNumber, filter.PageSize);
+
+            var pagedData = await _context.Customers
+                .Skip((validFilter.PageNumber - 1) * validFilter.PageSize)
+                .Take(validFilter.PageSize).ToListAsync();
+
+            var totalRecord = await _context.Customers.CountAsync();
+
+            var pagedResponse = new PagedResponse<List<Customer>>(pagedData, validFilter.PageNumber, validFilter.PageSize);
+            
+            return Ok(pagedResponse);
         }
 
         // GET api/<FakeCustomersController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return "value";
+            var customer = await _context.Customers.Where(x => x.Id == id).FirstOrDefaultAsync();
+            return Ok(new Response<Customer>(customer));
         }
 
         // POST api/<FakeCustomersController>

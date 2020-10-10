@@ -1,17 +1,15 @@
 # Advanced_Pagination
 
-![.NET Core](https://github.com/khalifa005/Advanced_Pagination/workflows/.NET%20Core/badge.svg?branch=khalifa)
 ![.NET Core](https://github.com/khalifa005/Advanced_Pagination)
-![.NET Core](https://github.com/silverkeytech/giz-labour-market-access/workflows/.NET%20Core/badge.svg?branch=dev)
+
 Related documents:
 
-* [Requirements]()
-* [Specifications](https://docs.google.com/document/d/1Ki-qKeKIQ4sz3M3Eb7tzt0Z)
+* [Requirements: asp dot net core 3.1 && vs ]()
 
 Test Sites:
 
-* [Live Demo](http://lmap.demoday.us)
-* [Why to use pagination]
+* [No Live Demo For This]
+
 # What is Paging? Why is it Important?
 
 Imagine you have an endpoint in your API that could potentially return millions of records with a single request. Let’s say there are 100s of users that are going to exploit this endpoint by requesting all the data in a single go at the same time. This would nearly kill your server and lead to several issues including security.

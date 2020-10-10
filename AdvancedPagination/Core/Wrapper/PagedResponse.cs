@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace AdvancedPagination.Core.Wrapper
 {
@@ -25,6 +26,8 @@ namespace AdvancedPagination.Core.Wrapper
             this.Message = null;
             this.Succeeded = true;
             this.Errors = null;
+            this.StatusCode = StatusCodes.Status200OK;
         }
+
     }
 }

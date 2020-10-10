@@ -1,8 +1,8 @@
 # Advanced_Pagination
 
-
-![.NET Core](#)
-
+![.NET Core](https://github.com/khalifa005/Advanced_Pagination/workflows/.NET%20Core/badge.svg?branch=khalifa)
+![.NET Core](https://github.com/khalifa005/Advanced_Pagination)
+![.NET Core](https://github.com/silverkeytech/giz-labour-market-access/workflows/.NET%20Core/badge.svg?branch=dev)
 Related documents:
 
 * [Requirements]()

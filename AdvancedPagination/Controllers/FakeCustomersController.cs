@@ -16,7 +16,7 @@ namespace AdvancedPagination.Controllers
     {
         private readonly IApplicationDbContext _context;
 
-        public FakeCustomersController(ApplicationDbContext _context)
+        public FakeCustomersController(IApplicationDbContext _context)
         {
             this._context = _context;
         }

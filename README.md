@@ -20,3 +20,8 @@ An ideal API endpoint would allow it’s consumers to get only a specific number
 
 Paging or Pagination in a method in which you get paged response. This means that you request with a page number and page size, and the ASP.NET Core WebApi returns exactly what you asked for, nothing more.
 
+-----------------------------------
+# Getting Started with Pagination in ASP.NET Core WebApi
+Wrappers for API Endpoints
+
+It’s always a good practice to add wrappers to your API response. What is a wrapper? Instead of just returning the data in the response, you have a possibility to return other parameters like error messages, response status, page number, data, page size, and so on. You get the point. So, instead of just returning List<Customer>, we will return Response<List<Customer>>. This would give us more flexibility and data to work with, Right?
